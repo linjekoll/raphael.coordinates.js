@@ -3,7 +3,7 @@
  var paper = Raphael(10, 50, 320, 200);
  var path = paper.path("M10 10 L90 90 L21 18 L19 31");
  
- path.getSubLengthByCord({
+ path.getLengthBetweenCoordinates({
    y: 10,
    x: 10 
  }, {
@@ -12,9 +12,9 @@
  });
  # => 212.86170582141557
  
- path.getLengthFromStartByCord(21, 18); # => 212.86170582141557
+ path.getLengthFromStartTo(21, 18); # => 212.86170582141557
  
- path.getLengthFromEndByCord(90, 90); # => 112.87756726953388
+ path.getLengthFromEndTo(90, 90); # => 112.87756726953388
 */
 
 /*
@@ -26,7 +26,7 @@
     y: 2000
   }
 */
-Raphael.el.getSubLengthByCord = function (from, to) {
+Raphael.el.getLengthBetweenCoordinates = function (from, to) {
   var path, max, min, calculation, start, stop, i, n, found = {}, sum = 0;
   
   calculation = function (start, stop) {
@@ -73,9 +73,9 @@ Raphael.el.getSubLengthByCord = function (from, to) {
   @x Integer containing the x containing.
   @y Integer containing the y coordinate.
 */
-Raphael.el.getLengthFromStartByCord = function(x, y) {
+Raphael.el.getLengthFromStartTo = function(x, y) {
   var path = this.attrs.path;
-  return this.getSubLengthByCord({
+  return this.getLengthBetweenCoordinates({
     x: path[0][1],
     y: path[0][2]
   }, {
@@ -89,12 +89,12 @@ Raphael.el.getLengthFromStartByCord = function(x, y) {
   @x Integer containing the x containing.
   @y Integer containing the y coordinate.
 */
-Raphael.el.getLengthFromEndByCord = function(x, y) {
+Raphael.el.getLengthFromEndTo = function(x, y) {
   var length, path;
   path = this.attrs.path;
   length = path.length;
   
-  return this.getSubLengthByCord({
+  return this.getLengthBetweenCoordinates({
     x: path[length - 1][1],
     y: path[length - 1][2]
   }, {
