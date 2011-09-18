@@ -1,6 +1,6 @@
 # raphael.coordinates.js
 
-Calculates the length in *pixels* between two coordinates from a [Raphael.js path](http://raphaeljs.com/reference.html#path).
+Calculates the length in *pixels* between two coordinates using a [Raphael.js path](http://raphaeljs.com/reference.html#path).
 
 ## Examples
 
