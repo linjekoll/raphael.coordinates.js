@@ -15,8 +15,8 @@ Get length from the *M10, 10* coordinate to *L21, 18*.
 
 ``` javascript
 path.getLengthBetweenCoordinates({
-  y: 10,
-  x: 10 
+  x: 10,
+  y: 10 
 }, {
   x: 21,
   y: 18
